@@ -116,5 +116,43 @@ function mostrarMensaje() {
 alert("GRACIAS POR TU PAGO");
 }
 </script>
+<div>
+        <script>
+    var formulario;
+    formulario =document.getElementById("calculoMinutos");
+
+    function calcular() {
+
+        var total = 0;
+        var Minutos= formulario.minCel.value;
+        total = Minutos * 10;
+
+        var cliente = formlulario.cliente.value;
+        if(formulario.plan.value == "tel")
+    {
+        // ENTRA AQUI PORQUE 
+        // ES VERDADERA LA COMPARACIÓN
+        total= total +100; }
+        
+        if(formluraio.plan.value =="internet")
+        {total=total +200; } 
+
+        if(formulario.plan.value == "tv")
+        {total=total +300; }
+    else
+    {
+        // ENTRA AQUI
+        // CONDICION FALSA
+        total= total;
+    }
+
+        alert(total);
+
+
+        // alert("Hola mundo, estoy en JavaScript");
+         alert(formulario.minCel.value)
+    }
+</script>
+    </div>
 </body>
 </html>
