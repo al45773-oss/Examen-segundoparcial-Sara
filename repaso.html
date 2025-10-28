@@ -6,7 +6,7 @@
 <title>Recibo Telefónico</title>
 <style>
     body {
-background-color: #d8fdd1;
+background-color: #f3d1fd;
 font-family: Arial, sans-serif;
 display: flex;
 justify-content: center;
@@ -15,11 +15,11 @@ height: 100vh;
 }
 
 .contenedor {
-background-color: rgb(123, 228, 123);
-border: 2px solid #3b7d3b;
+background-color: rgb(186, 123, 228);
+border: 2px solid #5b3b7d;
 padding: 20px 40px;
 border-radius: 8px;
-box-shadow: 0 0 15px rgba(0, 100, 0, 0.4);
+box-shadow: 0 0 15px rgba(45, 0, 100, 0.4);
 display: table-cell;
 vertical-align: middle;
 text-align: left;
@@ -27,15 +27,15 @@ text-align: left;
 
 h1 {
 text-align: center;
-text-shadow: 2px 2px 5px hsl(120, 30%, 40%);
+text-shadow: 2px 2px 5px hsl(285, 30%, 40%);
 color: black;
 }
 
 fieldset {
-border: 1px solid #2e6f2e;
+border: 1px solid #9d1ee7;
 margin: 15px 0;
 padding: 10px;
-background-color: #a9f5a9;
+background-color: #714d8b;
 }
 
 legend {
@@ -78,7 +78,10 @@ background-color: #2e8b57;
 <div class="contenedor">
 <h1>RECIBO TELEFONICO</h1>
 <form onsubmit="mostrarMensaje(); return false;">
-
+ <label for="Cliente">
+    Nombre del Cliente
+</label>
+<input type="text" name="cliente">
 <div class="seccion">
 <label for="minutos">Minutos de llamadas a celular: (1.00 c/u)</label>
 <input type="number" id="minutos" name="minutos">
@@ -147,10 +150,6 @@ alert("GRACIAS POR TU PAGO");
     }
 
         alert(total);
-
-
-        // alert("Hola mundo, estoy en JavaScript");
-         alert(formulario.minCel.value)
     }
 </script>
     </div>
