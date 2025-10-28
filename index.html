@@ -93,6 +93,10 @@
 
         <div class="two-colums">
         <div class="fields">
+            <label for="Cliente">
+                Nombre del Cliente
+            </label>
+            <input>
              <label for="nombre">
             Minutos de llamadas a celular:(1.00c/u)
         </label>
@@ -136,7 +140,31 @@
     function calcular() {
 
         var total = 0;
-        total = formulario.minCel.value * 10;
+        var Minutos= formulario.minCel.value;
+        total = Minutos * 10;
+
+        var cliente = formlulario.cliente.value;
+        if(formulario.plan.value == "tel")
+    {
+        // ENTRA AQUI PORQUE 
+        // ES VERDADERA LA COMPARACIÓN
+        total= total +100; }
+        
+        if(formluraio.plan.value =="internet")
+        {total=total +200; } 
+
+        if(formulario.plan.value == "tv")
+        {total=total +300; }
+    else
+    {
+        // ENTRA AQUI
+        // CONDICION FALSA
+        total= total;
+    }
+
+        alert(total);
+
+
         // alert("Hola mundo, estoy en JavaScript");
          alert(formulario.minCel.value)
     }
