@@ -77,101 +77,97 @@ background-color: #2e8b57;
 
 <body>
 <div class="contenedor">
-<h1>RECIBO TELEFONICO</h1>
+    <h1>RECIBO TELEFONICO</h1>
 
-<form action="">
- <label for="Cliente">
-    Nombre del Cliente
-</label>
-<input type="text" name="cliente">
-<div class="seccion">
-<label for="minutos">Minutos de llamadas a celular: (1.00 c/u)</label>
-<input type="number" id="minutos" name="minutos">
+    <form id="calculoMinutos" action="" method="get">
+        <label for="Cliente">
+            Nombre del Cliente
+        </label>
+        <input type="text" name="cliente">
+        <div class="seccion">
+        <label for="minutos">Minutos de llamadas a celular: (1.00 c/u)</label>
+        <input type="number" id="minutos" name="minutos">
+        </div>
+
+        <fieldset>
+        <legend>Tipo de plan</legend>
+        <label><input type="radio" name="plan" value="200"> Solo teléfono (200.00)</label><br>
+        <label><input type="radio" name="plan" value="450"> Teléfono + Internet (450.00)</label><br>
+        <label><input type="radio" name="plan" value="850"> Teléfono + Internet + TV (850.00)</label>
+        </fieldset>
+
+        <fieldset>
+        <legend>Otros Servicios</legend>
+        <label><input type="checkbox" name="servicio" value="30"> Antivirus (30.00)</label><br>
+        <label><input type="checkbox" name="servicio" value="50"> Servicios de nube (50.00)</label><br>
+        <label><input type="checkbox" name="servicio" value="40"> Servicios web (40.00)</label>
+        </fieldset>
+
+        <div class="seccion">
+            <label for="paquete">Paquetes</label>
+            <select id="paquete" name="paquete">
+                <option value="0">Residencial +0%</option>
+                <option value="5">Empresarial +5%</option>
+                <option value="10">Premium +10%</option>
+            </select>
+        </div>
+
+        <div class="grid-items result">
+            <h2 for="resultado">Total a pagar</h2>
+            <input type="text" id="resultado" readonly>
+
+                <button type="button" onclick=calcular()>
+                    Calcular Recibo 
+                </button>
+        </div>
+    </form>
 </div>
 
-<fieldset>
-<legend>Tipo de plan</legend>
-<label><input type="radio" name="plan" value="200"> Solo teléfono (200.00)</label><br>
-<label><input type="radio" name="plan" value="450"> Teléfono + Internet (450.00)</label><br>
-<label><input type="radio" name="plan" value="850"> Teléfono + Internet + TV (850.00)</label>
-</fieldset>
-
-<fieldset>
-<legend>Otros Servicios</legend>
-<label><input type="checkbox" name="servicio" value="30"> Antivirus (30.00)</label><br>
-<label><input type="checkbox" name="servicio" value="50"> Servicios de nube (50.00)</label><br>
-<label><input type="checkbox" name="servicio" value="40"> Servicios web (40.00)</label>
-</fieldset>
-
-<div class="seccion">
-<label for="paquete">Paquetes</label>
-<select id="paquete" name="paquete">
-<option value="0">Residencial +0%</option>
-<option value="5">Empresarial +5%</option>
-<option value="10">Premium +10%</option>
-</select>
-</div>
-
-<div class="grid-items result">
-    <h2 for="resultado">Total a pagar</h2>
-    <input type="text" id="resultado" readonly>
-
-        <button type="submit" onclick=calcular()>Calcular Recibo </button>
-</div>
-</form>
-</div>
-
-<!-- <script>
-function mostrarMensaje() {
-alert("GRACIAS POR TU PAGO");
-}
-</script>
-<div> -->
-        <script>
+<script>
     var formulario;
-    formulario =document.getElementById("calculoMinutos");
+    formulario = document.getElementById("calculoMinutos");
 
     function calcular() {
 
-        var total = 0;
-        var Minutos= formulario.minCel.value;
-        total = Minutos * 10;
+        // var total = 0;
+        // var Minutos= formulario.minCel.value;
+        // total = Minutos * 10;
 
-        var cliente = formlulario.cliente.value;
-        if(formulario.plan.value == "tel")
-    {
-        // ENTRA AQUI PORQUE 
-        // ES VERDADERA LA COMPARACIÓN
-        total= total +100; }
+    //     var cliente = formlulario.cliente.value;
+    //     if(formulario.plan.value == "tel")
+    // {
+    //     // ENTRA AQUI PORQUE 
+    //     // ES VERDADERA LA COMPARACIÓN
+    //     total= total +100; }
         
-        if(formluraio.plan.value =="internet")
-        {total=total +200; } 
+    //     if(formluraio.plan.value =="internet")
+    //     {total=total +200; } 
 
-        if(formulario.plan.value == "tv")
-        {total=total +300; }
+    //     if(formulario.plan.value == "tv")
+    //     {total=total +300; }
 
-        if(formulario.antivirus.checked)
-    {total = total + 50;}
+    //     if(formulario.antivirus.checked)
+    // {total = total + 50;}
     
-    if(formulario.nube.checked == true )
-    {total = total + 150;}
+    // if(formulario.nube.checked == true )
+    // {total = total + 150;}
 
-    if(formulario.ws.checked == true )
-    {total = total + 250;}
+    // if(formulario.ws.checked == true )
+    // {total = total + 250;}
 
-    if(formulario.paquetes.value == "resindencial")
-    {total = total + 250;}
+    // if(formulario.paquetes.value == "resindencial")
+    // {total = total + 250;}
 
-    else if(formulario.paquetes.value == "pyme")
-    {total = total + 654;}
+    // else if(formulario.paquetes.value == "pyme")
+    // {total = total + 654;}
 
-    else if(formulario.paquetes.value == "empresa")
-    {total = total + 987;}
+    // else if(formulario.paquetes.value == "empresa")
+    // {total = total + 987;}
     
     
     // formulario.resultado.value = total;
 
-        alert(total);
+        alert("total");
     }
 </script>
     <!-- </div> -->
