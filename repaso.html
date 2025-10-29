@@ -74,10 +74,12 @@ background-color: #2e8b57;
 </style>
 <link rel="stylesheet" href="estilos.css">
 </head>
+
 <body>
 <div class="contenedor">
 <h1>RECIBO TELEFONICO</h1>
-<form onsubmit="mostrarMensaje(); return false;">
+
+<form action="">
  <label for="Cliente">
     Nombre del Cliente
 </label>
@@ -110,16 +112,21 @@ background-color: #2e8b57;
 </select>
 </div>
 
-<button type="submit">Calcular Recibo</button>
+<div class="grid-items result">
+    <h2 for="resultado">Total a pagar</h2>
+    <input type="text" id="resultado" readonly>
+
+        <button type="submit" onclick=calcular()>Calcular Recibo </button>
+</div>
 </form>
 </div>
 
-<script>
+<!-- <script>
 function mostrarMensaje() {
 alert("GRACIAS POR TU PAGO");
 }
 </script>
-<div>
+<div> -->
         <script>
     var formulario;
     formulario =document.getElementById("calculoMinutos");
@@ -151,12 +158,22 @@ alert("GRACIAS POR TU PAGO");
 
     if(formulario.ws.checked == true )
     {total = total + 250;}
+
+    if(formulario.paquetes.value == "resindencial")
+    {total = total + 250;}
+
+    else if(formulario.paquetes.value == "pyme")
+    {total = total + 654;}
+
+    else if(formulario.paquetes.value == "empresa")
+    {total = total + 987;}
     
-    formulario.resultado.value = total;
     
+    // formulario.resultado.value = total;
+
         alert(total);
     }
 </script>
-    </div>
+    <!-- </div> -->
 </body>
 </html>
