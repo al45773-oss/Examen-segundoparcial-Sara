@@ -142,13 +142,18 @@ alert("GRACIAS POR TU PAGO");
 
         if(formulario.plan.value == "tv")
         {total=total +300; }
-    else
-    {
-        // ENTRA AQUI
-        // CONDICION FALSA
-        total= total;
-    }
 
+        if(formulario.antivirus.checked)
+    {total = total + 50;}
+    
+    if(formulario.nube.checked == true )
+    {total = total + 150;}
+
+    if(formulario.ws.checked == true )
+    {total = total + 250;}
+    
+    formulario.resultado.value = total;
+    
         alert(total);
     }
 </script>
