@@ -1,174 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formularios con Estilo</title>
-    <style>
-
-        form{
-            background-color: rgb(196, 18, 255);
-            width: 30%;
-            height: 400px;
-
-            margin: auto;
-            margin-top: 50px;
-
-            padding: 30px;
-            border: 20px solid black;
-
-            /* Posicionamiento */
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .two-colums {
-          display: flex;
-          justify-content: space-between;
-        }
-
-        .fields{
-            display: flex;
-            flex-direction: column;
-        }
-
-        label{
-            margin-top: 10px;
-            text-transform: uppercase;
-            font-weight: 700;
-            color: rgb(255, 255, 255);
-            font-size: 14px;
-        }
-
-        input, textarea{
-            background: transparent;
-            border: none;
-            border-bottom: 3px solid rgba(255, 255, 255, 0.5 );
-            padding: 10px;
-            color: white;
-        }
-
-        input:focus, 
-        textarea:focus{
-            outline: none;
-        }
-
-        textarea{
-            resize: none;
-        }
-
-        .btn{
-            display: flex;
-            justify-content: center;
-        }
-
-        button{
-            padding: 15px 40px;
-            background-color: #1baea990;
-            border: none;
-
-            font-size: 15px;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: #fff;
-
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        button :hover{
-            padding: 15px 70px;
-            background-color: #1baea9;
-        }
-
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recibo Telefónico</title>
+<style>
+body {
+  background-color: #f3d1fd;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.contenedor {
+  background-color: rgb(186, 123, 228);
+  border: 2px solid #5b3b7d;
+  padding: 20px 40px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(45, 0, 100, 0.4);
+  text-align: left;
+}
+h1 {
+  text-align: center;
+  text-shadow: 2px 2px 5px hsl(285, 30%, 40%);
+  color: black;
+}
+fieldset {
+  border: 1px solid #9d1ee7;
+  margin: 15px 0;
+  padding: 10px;
+  background-color: #714d8b;
+}
+legend { font-weight: bold; }
+label { display: block; margin: 5px 0; }
+input[type="number"], select {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 60%;
+  border: 1px solid #6ca96c;
+  border-radius: 4px;
+}
+button {
+  background-color: hsl(120, 40%, 35%);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+button:hover { background-color: #2e8b57; }
+</style>
 </head>
+
 <body>
-    <h1>RECIBO TELEFONICO</h1>
-    <br>
+<div class="contenedor">
+  <h1>RECIBO TELEFÓNICO</h1>
+  <form id="calculoMinutos">
+    <label>Nombre del Cliente</label>
+    <input type="text" name="cliente">
 
-    <form action="">
+    <label for="minutos">Minutos de llamadas a celular (1.00 c/u)</label>
+    <input type="number" id="minutos" name="minutos">
 
-        <div class="two-colums">
-        <div class="fields">
-            <label for="Cliente">
-                Nombre del Cliente
-            </label>
-            <input>
-             <label for="nombre">
-            Minutos de llamadas a celular:(1.00c/u)
-        </label>
-        <textarea name="comments" id="comments"></textarea>
-     <div class="fields">
-        <div class="fields">
-            <label>
-                Tipo de plan
-            </label>
-           <option>Solo telefono (200.00)</option>
-           <option>Telefono+Internet (450.00)</option>
-           <option>Telefono+Internet+Tv (850.00)</option>
-        </div>
-        <div class="fields">
-            <label>Otros servicios</label>
-            <option>Antivirus (30.00)</option>
-            <option>Servicios de nube (50.00)</option>
-            <option>Servicios web (40.00)</option>
-        </div>
-        <div class="fields">
-            <label>
-                Paquetes
-        </div>
-        <div>
-            </label>
-            <select>
-                <div>Residencial +0%</div>
-            </select>
-        </div>
-<div class="btn">
-        <button type="button">
-        Enviar
-    </button>
+    <fieldset>
+      <legend>Tipo de plan</legend>
+      <label><input type="radio" name="plan" value="tel"> Solo teléfono (200.00)</label>
+      <label><input type="radio" name="plan" value="internet"> Teléfono + Internet (450.00)</label>
+      <label><input type="radio" name="plan" value="tv"> Teléfono + Internet + TV (850.00)</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Otros Servicios</legend>
+      <label><input type="checkbox" name="servicio" value="30"> Antivirus (30.00)</label>
+      <label><input type="checkbox" name="servicio" value="50"> Servicios de nube (50.00)</label>
+      <label><input type="checkbox" name="servicio" value="40"> Servicios web (40.00)</label>
+    </fieldset>
+
+    <label for="paquete">Paquetes</label>
+    <select id="paquete" name="paquete">
+      <option value="0">Residencial +0%</option>
+      <option value="5">Empresarial +5%</option>
+      <option value="10">Premium +10%</option>
+    </select>
+
+    <h2>Total a pagar</h2>
+    <input type="text" id="resultado" readonly>
+
+    <button type="button" onclick="calcular()">Calcular Recibo</button>
+  </form>
 </div>
-    </form>
-    <div>
-        <script>
-    var formulario;
-    formulario =document.getElementById("calculoMinutos");
 
-    function calcular() {
+<script>
+function calcular() {
+  const formulario = document.getElementById("calculoMinutos");
+  let total = 0;
 
-        var total = 0;
-        var Minutos= formulario.minCel.value;
-        total = Minutos * 10;
+  // Minutos
+  const minutos = Number(formulario.minutos.value);
+  total += minutos * 1;
 
-        var cliente = formlulario.cliente.value;
-        if(formulario.plan.value == "tel")
-    {
-        // ENTRA AQUI PORQUE 
-        // ES VERDADERA LA COMPARACIÓN
-        total= total +100; }
-        
-        if(formluraio.plan.value =="internet")
-        {total=total +200; } 
+  // Plan
+  const plan = formulario.plan.value;
+  if (plan === "tel") total += 200;
+  else if (plan === "internet") total += 450;
+  else if (plan === "tv") total += 850;
 
-        if(formulario.plan.value == "tv")
-        {total=total +300; }
-    else
-    {
-        // ENTRA AQUI
-        // CONDICION FALSA
-        total= total;
-    }
+  // Otros servicios
+  const servicios = formulario.querySelectorAll('input[name="servicio"]:checked');
+  servicios.forEach(s => total += Number(s.value));
 
-        alert(total);
+  // Paquete (porcentaje)
+  const paquete = Number(formulario.paquete.value);
+  total += total * (paquete / 100);
 
-
-        // alert("Hola mundo, estoy en JavaScript");
-         alert(formulario.minCel.value)
-    }
+  // Resultado
+  formulario.resultado.value = total.toFixed(2);
+  alert("Total a pagar: $" + total.toFixed(2));
+}
 </script>
-    </div>
 </body>
 </html>
